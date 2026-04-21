@@ -1,0 +1,118 @@
+\doxysection{mainwindow.\+cpp File Reference}
+\hypertarget{mainwindow_8cpp}{}\label{mainwindow_8cpp}\index{mainwindow.cpp@{mainwindow.cpp}}
+
+
+Implementacja głównego okna aplikacji System Monitor.  
+
+
+{\ttfamily \+\#include "{}mainwindow.\+h"{}}\newline
+{\ttfamily \+\#include "{}./\+ui\+\_\+mainwindow.\+h"{}}\newline
+{\ttfamily \+\#include $<$windows.\+h$>$}\newline
+{\ttfamily \+\#include $<$pdh.\+h$>$}\newline
+{\ttfamily \+\#include $<$psapi.\+h$>$}\newline
+{\ttfamily \+\#include $<$curl/\+curl.\+h$>$}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$QJson\+Document$>$}\newline
+{\ttfamily \+\#include $<$QJson\+Object$>$}\newline
+{\ttfamily \+\#include $<$QFile$>$}\newline
+{\ttfamily \+\#include $<$QText\+Stream$>$}\newline
+{\ttfamily \+\#include $<$QProcess$>$}\newline
+{\ttfamily \+\#include $<$QThread$>$}\newline
+{\ttfamily \+\#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \+\#include $<$QDebug$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{mainwindow_8cpp_a56b62b3a46c1ad5f9d0cb0eec939c379}{get\+RAMUsage}} ()
+\begin{DoxyCompactList}\small\item\em Pobiera aktualny procentowy stan wykorzystania pamięci RAM. \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{mainwindow_8cpp_a26297a7e2471beee9d341b7318b0790e}{get\+CPUUsage}} ()
+\begin{DoxyCompactList}\small\item\em Pobiera obciążenie procesora (wszystkie rdzenie łącznie). \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{mainwindow_8cpp_a5c4a3bdb1244e9b303ec75e60332f60c}{get\+Disk\+Usage}} ()
+\begin{DoxyCompactList}\small\item\em Pobiera aktywność dysku fizycznego. \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{mainwindow_8cpp_a024d1d485920026d1ec7a7d38fe9d882}{list\+To\+String}} (QList$<$ double $>$ list)
+\begin{DoxyCompactList}\small\item\em Konwertuje listę wartości liczbowych na ciąg znaków rozdzielony przecinkami. \end{DoxyCompactList}\item 
+size\+\_\+t \doxymbox{\hyperlink{mainwindow_8cpp_a990ee4adc9e1d072d62d4710d21e88c0}{Write\+Callback}} (void \texorpdfstring{$\ast$}{*}contents, size\+\_\+t size, size\+\_\+t nmemb, std::\+string \texorpdfstring{$\ast$}{*}userp)
+\begin{DoxyCompactList}\small\item\em Funkcja zwrotna (callback) dla biblioteki CURL do zapisu odpowiedzi HTTP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implementacja głównego okna aplikacji System Monitor. 
+
+\begin{DoxyAuthor}{Author}
+Michał 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2026-\/04-\/20 
+\end{DoxyDate}
+
+
+\label{doc-func-members}
+\Hypertarget{mainwindow_8cpp_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{mainwindow_8cpp_a26297a7e2471beee9d341b7318b0790e}\index{mainwindow.cpp@{mainwindow.cpp}!getCPUUsage@{getCPUUsage}}
+\index{getCPUUsage@{getCPUUsage}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{getCPUUsage()}{getCPUUsage()}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a26297a7e2471beee9d341b7318b0790e} 
+double get\+CPUUsage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera obciążenie procesora (wszystkie rdzenie łącznie). 
+
+\begin{DoxyReturn}{Returns}
+Obciążenie w \% (double). 
+\end{DoxyReturn}
+\Hypertarget{mainwindow_8cpp_a5c4a3bdb1244e9b303ec75e60332f60c}\index{mainwindow.cpp@{mainwindow.cpp}!getDiskUsage@{getDiskUsage}}
+\index{getDiskUsage@{getDiskUsage}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{getDiskUsage()}{getDiskUsage()}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a5c4a3bdb1244e9b303ec75e60332f60c} 
+double get\+Disk\+Usage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera aktywność dysku fizycznego. 
+
+\begin{DoxyReturn}{Returns}
+Procent czasu aktywności dysku (double). 
+\end{DoxyReturn}
+\Hypertarget{mainwindow_8cpp_a56b62b3a46c1ad5f9d0cb0eec939c379}\index{mainwindow.cpp@{mainwindow.cpp}!getRAMUsage@{getRAMUsage}}
+\index{getRAMUsage@{getRAMUsage}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{getRAMUsage()}{getRAMUsage()}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a56b62b3a46c1ad5f9d0cb0eec939c379} 
+double get\+RAMUsage (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera aktualny procentowy stan wykorzystania pamięci RAM. 
+
+\begin{DoxyReturn}{Returns}
+Wartość typu double (procenty). 
+\end{DoxyReturn}
+\Hypertarget{mainwindow_8cpp_a024d1d485920026d1ec7a7d38fe9d882}\index{mainwindow.cpp@{mainwindow.cpp}!listToString@{listToString}}
+\index{listToString@{listToString}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{listToString()}{listToString()}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a024d1d485920026d1ec7a7d38fe9d882} 
+QString list\+To\+String (\begin{DoxyParamCaption}\item[{QList$<$ double $>$}]{list}{}\end{DoxyParamCaption})}
+
+
+
+Konwertuje listę wartości liczbowych na ciąg znaków rozdzielony przecinkami. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & Lista wartości double (pobrane próbki). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+QString sformatowany pod Pythonowe listy \+[x, y, z]\+. 
+\end{DoxyReturn}
+\Hypertarget{mainwindow_8cpp_a990ee4adc9e1d072d62d4710d21e88c0}\index{mainwindow.cpp@{mainwindow.cpp}!WriteCallback@{WriteCallback}}
+\index{WriteCallback@{WriteCallback}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{WriteCallback()}{WriteCallback()}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a990ee4adc9e1d072d62d4710d21e88c0} 
+size\+\_\+t Write\+Callback (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{contents}{, }\item[{size\+\_\+t}]{size}{, }\item[{size\+\_\+t}]{nmemb}{, }\item[{std::\+string \texorpdfstring{$\ast$}{*}}]{userp}{}\end{DoxyParamCaption})}
+
+
+
+Funkcja zwrotna (callback) dla biblioteki CURL do zapisu odpowiedzi HTTP. 
+
